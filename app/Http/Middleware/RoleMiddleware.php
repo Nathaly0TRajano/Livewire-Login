@@ -17,8 +17,8 @@ class RoleMiddleware
     {
         // Se o lohin estiver correto, e o tipo de usuario, for o mesmo que estivermos passando(admin), ele vai continuar e levar pra proxima página.
         if(auth()->check() && auth()->user()->role === $role){
-            return $next($request);
-        }
+            return $next($request); 
+        } // Se o usuario não estiver logado, ele não direciona
 
         abort(403, 'Acesso não autorizado');
     }
